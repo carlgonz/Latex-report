@@ -1,0 +1,183 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%		PLANTILLA LATEX PARA INFORMES
+%%%%			LATEX REPORT TEMPLATE
+%%%%	
+%%%%	Autor	: Carlos Gonzalez Cortes
+%%%%	Correo	: carlgonz@ug.uchile.cl
+%%%%	Version	: 1.0
+%%%%
+%%%%	Notas	: Este codigo se entrega tal cual es y sin
+%%%%			  ningun tipo de garantia. Sientase libre de
+%%%%			  modificar y compartir.(acentos omitidos en
+%%%%			  los comentarios por compatibilidad)
+%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\documentclass[11pt,letterpaper]{article}
+\usepackage[spanish]{babel}
+%\usepackage[ansinew]{inputenc}
+\usepackage[utf8]{inputenc}
+% \usepackage[latin1]{inputenc}
+\usepackage[letterpaper,includeheadfoot, top=0.5cm, bottom=3.0cm, right=2.0cm, left=2.0cm]{geometry}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{url}
+%\usepackage{pdfpages}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{subfig}
+
+\usepackage{listings} %Codigo
+\lstset{language=C, tabsize=4,framexleftmargin=5mm,breaklines=true}
+
+\begin{document}
+%\begin{sf}
+% --------------- ---------PORTADA --------------------------------------------
+\newpage
+\pagestyle{fancy}
+\fancyhf{}
+%-------------------- CABECERA ---------------------
+\fancyhead[L]{ \includegraphics[scale=0.9]{img/logo.pdf} }
+%------------------ TÍTULO -----------------------
+\vspace*{6cm}
+\begin{center}
+\Huge  {Título Grande}\\
+\vspace{1cm}
+\huge {Título Medio}\\
+\vspace{1cm}
+\small {Título pe} \\
+\end{center}
+%----------------- NOMBRES ------------------------
+\vfill
+\begin{flushright}
+\begin{tabular}{ll}
+Autor: & Nombre Apellido\\
+Profesor: & Nombre Apellido\\
+Auxiliar: & Nombre Apellido\\
+& \today\\
+& Santiago, Chile.
+\end{tabular}
+\end{flushright}
+
+% ·············· ENCABEZADO - PIE DE PAGINA ············
+\newpage
+\pagestyle{fancy}
+\fancyhf{}
+
+%Encabezado
+%\fancyhead[L]{\rightmark}
+\fancyhead[L]{\small \rm \textit{Sección \rightmark}} %Izquierda
+\fancyhead[R]{\small \rm \textbf{\thepage}} %Derecha
+
+
+\fancyfoot[L]{\small \rm \textit{Pie de página - Izquierda}} %Izquierda
+\fancyfoot[R]{\small \rm \textit{Pie de página - Derecha}} %Derecha
+%\fancyfoot[C]{\thepage} %Centro
+
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+% =============== INDICE ===============
+
+\tableofcontents
+\listoffigures
+
+% =============== SECCION ===============
+\newpage
+\section{Titulo de sección}
+
+% ----- TEXTO DE EJEMPLO, BORRAR ---
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis augue sit amet ante accumsan elementum. Donec mollis tellus ut risus consequat dapibus. Curabitur diam eros, viverra et ullamcorper in, congue eget felis. Praesent bibendum, lorem a semper porta, purus libero varius purus, sed mollis odio neque molestie mauris. Nam vel eros augue. Nam nisi est, commodo et gravida at, fringilla et sem. Sed interdum dignissim volutpat. \\ %Nuevo parrafo
+% ----------------------------------
+
+La figura \ref{img1} es un ejemplo de como insertar una imagen
+
+% ················ IMAGEN DOBLE ·················
+\begin{figure}[ht!] \centering
+\subfloat[Logo UChile]{\includegraphics[scale=0.2]{img/escudoU.pdf}}
+\hspace{1cm} %Espacio horizontal
+\subfloat[Logo FCFM]{\includegraphics[scale=0.45]{img/fcfm.png}}
+\caption{Ejemplo de imagen doble}\label{img1}
+\end{figure}
+%··········································
+
+% =============== SUBSECCION ===============
+\subsection{Titulo de subsección}
+
+% ----- TEXTO DE EJEMPLO, BORRAR ---
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis augue sit amet ante accumsan elementum. Donec mollis tellus ut risus consequat dapibus. Curabitur diam eros, viverra et ullamcorper in, congue eget felis. Praesent bibendum, lorem a semper porta, purus libero varius purus, sed mollis odio neque molestie mauris. Nam vel eros augue. Nam nisi est, commodo et gravida at, fringilla et sem. Sed interdum dignissim volutpat.\\ %Nuevo parrafo
+% ----------------------------------
+
+A continuación la figura \ref{img2} presenta otra forma de agregar imágenes
+
+% ················ IMAGEN ·················
+\begin{figure}[ht!]
+\centering \includegraphics[scale=0.2]{img/escudoU.pdf}
+\caption{Escudo de la Universidad de Chile} \label{img2}
+\end{figure}
+%··········································
+
+% =============== SUBSUBSECCION ===============
+\subsubsection{Otros ejemplos}
+
+\paragraph{Estilos de letra}
+Algunos estilos de letra disponibles
+
+\textit{Texto en cursiva}. \textbf{Texto en negrita}. \texttt{Texto de ancho fijo}\\
+
+\paragraph{Enumerar}
+
+\begin{enumerate}
+	\item Numero 1
+	\item Numero 2
+	\item Numero 3
+\end{enumerate}
+
+\paragraph{Lista}
+
+\begin{itemize}
+	\item Punto 1
+	\item Punto 2
+	\item Punto 3
+\end{itemize}
+
+\paragraph{Cita}
+
+Este texto hace referencia una cita \cite{cmos}
+
+
+% ============= BIBLIOGRAFIA ==============
+\newpage
+\newpage
+\begin{thebibliography}{5}
+	\bibitem{cmos} R. Jacob Baker, \textit{CMOS. Circuit Design, Layout, and Simulation}, 2nd ed., USA: IEEE Press, 2005
+	
+\end{thebibliography}
+
+
+% ============= FIN DE DOCUMENTO ==============
+\end{document}
+
+% % ················ IMAGEN ·················
+% \begin{figure}[ht!]
+% \centering
+% \fbox{\includegraphics[scale=0.6]{img/flujo.png}}
+% \caption{Flujo de caja anual}\label{flujo}
+% \end{figure}
+% %··········································
+
+% % ················ IMAGEN DOBLE ·················
+% \begin{figure}[ht!] \centering
+% \subfloat[Esquemático]{\includegraphics[scale=0.44]{img/seguidor.png}}
+% \subfloat[Simulación]{\includegraphics[scale=0.45]{img/seguidor1.png}}
+% \caption{Simulación como seguidor de voltaje}\label{seguidor}
+% \end{figure}
+% %··········································
